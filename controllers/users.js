@@ -2,15 +2,9 @@ const jwt = require('jsonwebtoken');
 const pool = require('../db');
 require('dotenv').config();
 
-
-const accessApi = (req, res) => {
-
-    res.json({ message: 'Você acessou a api'});
-}
-
 const loginToken = async(req, res) => {
 
-    let user = []
+    let user = [];
 
     try {
 
@@ -36,7 +30,7 @@ const loginToken = async(req, res) => {
 
     try {
 
-        const userId = user.id
+        const userId = user.id;
 
         const token = jwt.sign({id: userId}, process.env.JWT_SECRET, 
         {expiresIn: process.env.JWT_EXPIRES_IN});
@@ -52,7 +46,7 @@ const loginToken = async(req, res) => {
 
 const getProtected = (req, res) => {
 
-    res.json({ message: "Você acessou uma rota protegida!"})
+    res.json({ message: "Você acessou uma rota protegida!"});
 }
 
-module.exports = { accessApi, getProtected, loginToken };   
+module.exports = { getProtected, loginToken };   
