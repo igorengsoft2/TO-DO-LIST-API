@@ -44,9 +44,4 @@ const loginToken = async(req, res) => {
     }
 }
 
-const getProtected = (req, res) => {
-
-    res.json({ message: "Você acessou uma rota protegida!"});
-}
-
-module.exports = { getProtected, loginToken };   
+module.exports = loginToken;   
