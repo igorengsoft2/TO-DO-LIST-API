@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const testes = require('../controllers/users');
-const auth = require('../middlewares/authUser')
+const { accessApi, loginToken, getProtected } = require('../controllers/users');
+const authToken = require('../middlewares/authUser')
 
-router.get('/', testes.accessApi);
-router.post('/login', testes.loginToken);
-router.get('/protected', auth.authToken, testes.getProtected);
+router.get('/', accessApi);
+router.post('/login', loginToken);
+router.get('/protected', authToken, getProtected);
 
 module.exports = router;
