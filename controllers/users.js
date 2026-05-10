@@ -9,7 +9,7 @@ const loginToken = async(req, res) => {
     try {
 
         const { username, password } = req.body;
-        const values = [username];
+        const values = [username, password];
 
         const query = "SELECT nome, senha, id FROM usuario WHERE nome = ? AND password = ?";
         const [rows] = await pool.execute(query, values);
@@ -23,7 +23,7 @@ const loginToken = async(req, res) => {
         return res.status(500).json({message: 'Erro ao buscar usuário'});
     }
 
-    if (user.length == 0) {
+    if (!user) {
 
         return res.status(401).json({message: 'Credenciais inválidas!'});
     }
