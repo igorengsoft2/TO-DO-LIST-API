@@ -44,4 +44,9 @@ const loginToken = async(req, res) => {
     }
 }
 
-module.exports = loginToken;   
+const getUsers = async(req, res) => {
+
+
+}
+
+module.exports = { loginToken, getUsers };   
